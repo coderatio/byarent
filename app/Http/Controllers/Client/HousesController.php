@@ -9,6 +9,6 @@ class HousesController extends Controller
 {
     public function index($type = '')
     {
-        return view('houses.index');
+        return view('houses.index', compact('type'));
     }
 }

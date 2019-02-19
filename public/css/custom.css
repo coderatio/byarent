@@ -408,6 +408,10 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     color: #e00000;
 }
 
+@media (min-width: 767px) {
+
+}
+
 /*********** Articles *********/
 .post-content {
     position: relative;

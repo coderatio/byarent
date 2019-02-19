@@ -17,12 +17,11 @@
             <!-- Carousel -->
             <div class="col-md-12">
                 <div class="carousel">
-
                     <!-- Listing Item -->
                     <div class="carousel-item">
                         <div class="listing-item grid">
 
-                            <a href="single-property-page-1.html" class="listing-img-container">
+                            <a href="/details" class="listing-img-container">
 
                                 <div class="listing-badges">
                                     <span class="featured">Featured</span>
@@ -204,7 +203,6 @@
                     <!-- Listing Item -->
                     <div class="carousel-item">
                         <div class="listing-item grid">
-
 
                             <a href="single-property-page-1.html" class="listing-img-container">
                                 <div class="listing-badges">

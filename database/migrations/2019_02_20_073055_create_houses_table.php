@@ -21,7 +21,7 @@ class CreateHousesTable extends Migration
             $table->longText('description');
             $table->string('price');
             $table->text('picture');
-            $table->longText('images');
+            $table->longText('pictures');
             $table->timestamps();
         });
     }

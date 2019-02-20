@@ -71,7 +71,7 @@
 <!-- Scripts
 ================================================== -->
 {{--<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>--}}
-{{--<script src="{{ asset('js/app.js') }}"></script>--}}
+<script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/jquery-2.2.0.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/chosen.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/magnific-popup.min.js') }}"></script>

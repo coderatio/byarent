@@ -5,5 +5,5 @@
 @section('content')
     @include('houses.inc.search', ['type' => $type])
 
-    @include('houses.inc.listings', ['houses' => []])
+    @include('partials.listings', ['houses' => $houses])
 @stop

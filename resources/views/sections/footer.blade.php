@@ -90,6 +90,10 @@
 
 <!-- Google Autocomplete -->
 <script>
+    $(document).ready(function () {
+        const currency = '{{ setting('payments.currency_symbol') }}'
+    })
+
     function initAutocomplete() {
         let input = document.getElementById('autocomplete-input');
         if (input) {

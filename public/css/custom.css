@@ -20,7 +20,7 @@ input[type="password"] {
 }
 
 #wrapper {
-    background: linear-gradient(to bottom, #fdf2f2 80%, transparent);
+    background: #f9f1f1;
     overflow: hidden;
 }
 
@@ -292,7 +292,7 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 }
 
 .listing-img-container:before {
-    background: linear-gradient(to bottom, transparent 70%, #313256);
+    background: linear-gradient(to bottom, transparent 50%, #313256);
 }
 
 .grid .listing-img-container {
@@ -306,11 +306,56 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     background: linear-gradient(to bottom, transparent 65%, #000)
 }
 
+.listing-content {
+    border-radius: 0 0 5px 5px;
+}
+
 .listing-features {
     background-color: #f7f7f7;
     background: linear-gradient(to bottom, #ffffff 0%, #f9ebeb);
     padding: 10px 30px 24px 30px;
     border-radius: 0 0 3px 3px;
+}
+
+.listing-item .listing-details {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-height: 100px;
+    overflow: hidden;
+    margin-top: 10px;
+    position: relative;
+}
+
+.listing-item .listing-details:before {
+    height: 50px;
+    position: absolute;
+    background: linear-gradient(to bottom, transparent 10%, #ffffff);
+    content: '';
+    width: 100%;
+    bottom: 0;
+}
+
+.listing-title {
+    padding-bottom: 0;
+}
+
+.listing-title h4 {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.listing-title h4 a {
+    color: #ad2828;
+}
+
+.listing-footer {
+    text-align: center;
+    display: block;
+}
+
+.listing-footer .more {
+    text-transform: capitalize;
+    letter-spacing: 2px;
 }
 
 .property-main-features {
@@ -328,6 +373,10 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     color: #999;
     font-weight: 300;
     margin-top: -10px;
+}
+
+.property-pricing.without-sub-price .sub-price{
+    margin-top: 20px;
 }
 
 .property-button .property-button-add-to-cart {
@@ -358,12 +407,16 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     position: relative;
 }
 
+#titlebar.property-titlebar {
+    background: transparent;
+}
+
 .stick-house-title-bar {
     position: fixed !important;
     z-index: 998;
     width: 100%;
-    background: #ffecec !important;
-    box-shadow: 0 2px 14px 0 rgba(0,0,0, 0.3);
+    background: #fbf6f6 !important;
+    box-shadow: 0 0px 64px 0 rgba(0,0,0, 0.1);
 }
 
 @media(min-width: 767px) {
@@ -406,6 +459,11 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 
 .owl-theme .owl-controls.clickable .owl-buttons div:hover {
     color: #e00000;
+}
+
+.listing-carousel.owl-theme .owl-controls .owl-buttons div:hover,
+.listing-carousel.owl-theme .owl-controls .owl-buttons div {
+    color: #fff !important;
 }
 
 @media (min-width: 767px) {

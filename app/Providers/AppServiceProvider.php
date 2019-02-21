@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Facades\TemporaryCart as TemporaryCartFacade;
+use App\Supports\TemporaryCart;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $loader = AliasLoader::getInstance();
+        $loader->alias('TemporaryCart', TemporaryCartFacade::class);
+
+        $this->app->singleton('temporary-cart', function () {
+            return new TemporaryCart();
+        });
     }
 }

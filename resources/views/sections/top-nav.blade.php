@@ -68,11 +68,21 @@
                 <!-- Main Navigation -->
                 <nav id="navigation" class="style-1">
                     <ul id="responsive">
-                        <li><a class="current" href="/">Home</a></li>
-                        <li><a class="" href="{{ route('houses.index', 'rent') }}">For rent</a></li>
-                        <li><a class="" href="{{ route('houses.index', 'sale') }}">For sale</a></li>
-                        <li><a class="" href="/contact">Contact</a></li>
-                        <li><a class="" href="/favorite">Favorite</a></li>
+                        <li>
+                            <a class="@if(url()->current() === route('home.index')) current @endif" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a class="@if(url()->current() === route('houses.index', 'rent')) current @endif" href="{{ route('houses.index', 'rent') }}">For rent</a>
+                        </li>
+                        <li>
+                            <a class="@if(url()->current() === route('houses.index', 'sale')) current @endif" href="{{ route('houses.index', 'sale') }}">For sale</a>
+                        </li>
+                        <li>
+                            <a class="" href="/contact">Contact</a>
+                        </li>
+                        <li>
+                            <a class="" href="/favorite">Favorite</a>
+                        </li>
                     </ul>
                 </nav>
                 <div class="clearfix"></div>
@@ -112,10 +122,9 @@
                     <div class="d-inline cart-drowpdown-wrapper">
                         <a href="" class="cart widget-icon prevented-link" aria-expanded="false">
                             <i uk-icon="icon: cart; ratio: 2"></i>
-                            <span class="cart-counter badge" id="cart-counter">2</span>
+                            <span class="cart-counter badge @if(!TemporaryCart::hasItems()) hidden @endif" id="cart-counter">{{ TemporaryCart::count() }}</span>
                         </a>
-                        {{--TODO: Feed cart dropdown with data--}}
-                        @include('components.dropdown-cart', ['data' => []])
+                        @include('components.dropdown-cart', ['items' => TemporaryCart::items()])
                     </div>
                     <div class="dropdown-menu dropleft" aria-labelledby="accountDropdwn">
                         <a class="dropdown-item" href="#"><i uk-icon="icon: sign-in" class="margin-right-10"></i> Login</a>

@@ -104,6 +104,7 @@
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/test-hook/.git" />
       <path value="$PROJECT_DIR$/vendor/test-hook/src" />
+      <path value="$PROJECT_DIR$/vendor/gloudemans/shoppingcart" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

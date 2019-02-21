@@ -2,32 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5abf8fc9-9a79-4696-a5d3-0af5303d0120" name="Default Changelist" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/app/Contracts/CartInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Facades/TemporaryCart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Money.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Supports/TemporaryCart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/card-dropdown-table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/default-houses-carousel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/listings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/byarent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/byarent.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/House.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/House.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/HousesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/HousesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown-cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown-cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/house-details/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/house/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/houses/inc/listings.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/houses/inc/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/houses/inc/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/houses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/houses/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sections/banner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sections/banner.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sections/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sections/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sections/top-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sections/top-nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn1.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,15 +19,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/House.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/public/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="278">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -74,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/TemporaryCartsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="e#47#77#0#PHP" expanded="true" />
               </folding>
@@ -109,14 +79,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Supports/TemporaryCart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="196" column="5" lean-forward="true" selection-start-line="196" selection-start-column="5" selection-end-line="196" selection-end-column="5" />
+            <state relative-caret-position="289">
+              <caret line="67" column="40" lean-forward="true" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
               <folding>
                 <element signature="e#34#66#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/cart.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="42" column="6" lean-forward="true" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_21_130457_create_shoppingcart_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -134,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/app/Contracts/CartInterface.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
-              <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -168,15 +156,6 @@
               <folding>
                 <element signature="e#47#61#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -249,8 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/vendor/template/scripts/custom.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Client/CheckoutController.php" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
@@ -300,6 +277,8 @@
         <option value="$PROJECT_DIR$/public/js/script.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/TemporaryCartsController.php" />
         <option value="$PROJECT_DIR$/app/Supports/TemporaryCart.php" />
+        <option value="$PROJECT_DIR$/config/cart.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_02_21_130457_create_shoppingcart_table.php" />
       </list>
     </option>
   </component>
@@ -407,6 +386,7 @@
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/test-hook/.git" />
       <path value="$PROJECT_DIR$/vendor/test-hook/src" />
+      <path value="$PROJECT_DIR$/vendor/gloudemans/shoppingcart" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -444,12 +424,6 @@
               <item name="byarent" type="b2602c69:ProjectViewProjectNode" />
               <item name="byarent" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="byarent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="byarent" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="factories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="byarent" type="b2602c69:ProjectViewProjectNode" />
@@ -548,12 +522,12 @@
       <workItem from="1550323557979" duration="5890000" />
       <workItem from="1550391807962" duration="27794000" />
       <workItem from="1550476015214" duration="38309000" />
-      <workItem from="1550589323383" duration="56346000" />
+      <workItem from="1550589323383" duration="58386000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128339000" />
+    <option name="totallyTimeSpent" value="130379000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -593,20 +567,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/CheckoutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cart/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1971">
@@ -928,7 +888,7 @@
     <entry file="file://$PROJECT_DIR$/app/Contracts/CartInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
-          <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -963,14 +923,14 @@
     <entry file="file://$PROJECT_DIR$/public/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Client/TemporaryCartsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="e#47#77#0#PHP" expanded="true" />
           </folding>
@@ -979,11 +939,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Supports/TemporaryCart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="196" column="5" lean-forward="true" selection-start-line="196" selection-start-column="5" selection-end-line="196" selection-end-column="5" />
+        <state relative-caret-position="289">
+          <caret line="67" column="40" lean-forward="true" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
           <folding>
             <element signature="e#34#66#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="42" column="6" lean-forward="true" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_21_130457_create_shoppingcart_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
         </state>
       </provider>
     </entry>

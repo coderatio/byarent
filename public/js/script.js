@@ -16,11 +16,13 @@ $(document).ready(function () {
         }, (data) => {
             let cartCounter = $('#cart-counter');
 
-            if (data.items.length > 0) {
+            /*if (data.items.length > 0) {
                 cartCounter.removeClass('hidden').html(data.items.length)
 
                 $('#card-dropdown-holder').html(data.contents)
-            }
+            }*/
+
+            console.log(data);
 
         }).fail((error) => {
             console.log(error)

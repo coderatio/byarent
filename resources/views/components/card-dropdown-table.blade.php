@@ -1,30 +1,31 @@
-@if (TemporaryCart::hasItems())
+@if (ByarentCart::count())
     <div class="table-responsive cart-dropdown">
         <table class="uk-table uk-table-hover uk-table-middle uk-table-small">
             <thead>
             <tbody>
             @php $serialNo = 1; @endphp
             @foreach($items as $item)
-                @php $price = ($item['item']->parsedPrice * $item['quantity']); @endphp
+                @php $price = ($item->options->house->parsedPrice * $item->qty); @endphp
                 <tr class="cart-dropdown-item">
                     <td>{{ $serialNo }}</td>
                     <td>
                         <div class="cart-dropdown-image-wrapper">
-                            <img src="{{ Voyager::image($item['item']->picture) }}" alt="">
-                            <span class="cart-dropdown-qty badge" id="{{ $item['id'] }}">{{ $item['quantity'] }}</span>
+                            <img src="{{ Voyager::image($item->options->house->picture) }}" alt="">
+                            <span class="cart-dropdown-qty badge" id="{{ $item->id }}">{{ $item->qty }}</span>
                         </div>
                     </td>
                     <td>
-                    <span class="cart-dropdown-price" id="cartPrice{{ $item['id'] }}">
-                        {{ setting('payments.currency_symbol') . ' '. \App\Services\Money::shorten($price) }}
-                    </span>
+                        <span class="cart-dropdown-price" id="cartPrice{{ $item->id }}">
+                            <b>{{ setting('payments.currency_symbol') . ' '. \App\Services\Money::shorten($price) }}</b>
+                        </span><br/>
+                        {{ $item->options->house->name }}
                     </td>
                     <td>
-                        <a href="" class="cart-dropdown-remove text-danger" id="{{ $item['id'] }}" uk-icon="icon: close"></a>
+                        <a href="" class="cart-dropdown-remove text-danger" id="{{ $item->id }}" uk-icon="icon: close"></a>
                     </td>
                 </tr>
                 @php $serialNo++; @endphp
-                @if ($loop->iteration === 3)
+                @if ($loop->iteration === 2)
                     @break
                 @endif
             @endforeach

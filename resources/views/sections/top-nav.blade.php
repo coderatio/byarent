@@ -122,9 +122,9 @@
                     <div class="d-inline cart-drowpdown-wrapper">
                         <a href="" class="cart widget-icon prevented-link" aria-expanded="false">
                             <i uk-icon="icon: cart; ratio: 2"></i>
-                            <span class="cart-counter badge @if(!TemporaryCart::hasItems()) hidden @endif" id="cart-counter">{{ TemporaryCart::count() }}</span>
+                            <span class="cart-counter badge @if(!ByarentCart::hasItems()) hidden @endif" id="cart-counter">{{ ByarentCart::count() }}</span>
                         </a>
-                        @include('components.dropdown-cart', ['items' => TemporaryCart::items()])
+                        @include('components.dropdown-cart', ['items' => ByarentCart::items()])
                     </div>
                     <div class="dropdown-menu dropleft" aria-labelledby="accountDropdwn">
                         <a class="dropdown-item" href="#"><i uk-icon="icon: sign-in" class="margin-right-10"></i> Login</a>

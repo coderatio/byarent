@@ -17,7 +17,7 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\HouseController;
 use App\Http\Controllers\Client\HousesController;
 use App\Http\Controllers\Client\OrdersController;
-use App\Http\Controllers\Client\TemporaryCartsController;
+use App\Http\Controllers\Client\ShoppingCartsController;
 
 
 // TODO: Remove or update routes parameters
@@ -28,7 +28,9 @@ Route::get('cart/{id?}', [CartController::class, 'index'])->name('cart.index');
 Route::get('checkout/{cartID}', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::get('order/{id}', [OrdersController::class, 'index'])->name('order.index');
 
-Route::post('temporary-carts/store', [TemporaryCartsController::class, 'store'])->name('temporary-carts.store');
+Route::post('carts/store', [ShoppingCartsController::class, 'store'])->name('carts.store');
+Route::post('carts/remove', [ShoppingCartsController::class, 'destroy'])->name('carts.destroy');
+Route::post('carts/clear', [ShoppingCartsController::class, 'clear'])->name('carts.clear');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

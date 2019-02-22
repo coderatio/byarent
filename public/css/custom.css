@@ -41,6 +41,10 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     background: #fff;
 }
 
+#header:not(.byarent-header) {
+    display: none !important;
+}
+
 .header-widget .button, .header-widget .button.border {
     border: 1px solid #e32b2b !important;
 }
@@ -69,12 +73,16 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 #header.cloned #logo img {
     transform: translate3d(0,0,0);
     max-width: 100px;
-    margin-top: 1px;
+    margin-top: -5px;
 }
 
 #logo {
     margin-right: 40px;
     width: 100px;
+}
+
+#header #logo img {
+    margin-top: -5px;
 }
 
 .mmenu-trigger:focus, .mmenu-trigger:active {
@@ -182,6 +190,30 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     padding-top: 5px;
 }
 
+.cart-drowpdown-wrapper .uk-dropdown {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cart-drowpdown-wrapper .uk-dropdown table {
+    padding: 0 20px;
+}
+
+.cart-drowpdown-wrapper .uk-dropdown .cart-dropown-footer {
+    padding: 13px 20px 10px 20px;
+    background: #ffe7e7;
+    border-radius: 0 0 .25rem .25rem;
+}
+
+.cart-dropown-footer a {
+    font-size: 14px;
+}
+
+.cart-dropown-footer a#cart-dropdown-clear {
+    text-transform: uppercase;
+}
+
 @media only screen and (max-width: 992px) {
     #header {
         position: relative;
@@ -266,7 +298,7 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 }
 
 .uk-dropdown {
-    box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    box-shadow: 0 2px 22px rgba(0,0,0,.25);
     border-radius: .25rem;
 }
 
@@ -278,6 +310,15 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 }
 
 /*********** Buttons ***********/
+.btn, .uk-button {
+    outline: none;
+    border-radius: .25rem;
+}
+.btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-danger.dropdown-toggle:focus {
+    box-shadow: none;
+    outline: none;
+}
+
 .button {
     outline: none;
 }
@@ -415,8 +456,24 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     position: fixed !important;
     z-index: 998;
     width: 100%;
-    background: #fbf6f6 !important;
+    background: #841b1b !important;
     box-shadow: 0 0px 64px 0 rgba(0,0,0, 0.1);
+}
+
+.stick-house-title-bar .property-pricing .sub-price {
+    color: #fdb4b4;
+}
+
+.stick-house-title-bar .property-pricing .property-price {
+    color: #f7e7e7;
+}
+
+.stick-house-title-bar.property-titlebar h2{
+    color: #fff;
+}
+
+#titlebar.stick-house-title-bar.property-titlebar span a {
+    color: #ecb2b2;
 }
 
 @media(min-width: 767px) {
@@ -439,6 +496,10 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
         border-top: 1px solid #DDDDDD;
         margin-top: -5px;
         padding-top: 10px;
+    }
+
+    .stick-house-title-bar .property-pricing {
+        border-top: 1px solid #9e3838;
     }
 
     .stick-house-title-bar .property-pricing {
@@ -600,6 +661,63 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     border-radius: 5px;
 }
 
+/******** Sweet Alert ********/
+.sweet-alert {
+    padding: 20px 0 0;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+}
+
+.sweet-alert h2 {
+    margin-top: -1px;
+}
+
+.sweet-alert p.lead {
+    margin-top: -15px;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.sweet-alert .sa-button-container {
+    padding: 15px 10px !important;
+    background: #fff4f4;
+}
+
+.sweet-alert .btn-default:focus {
+    border-color: transparent;
+    outline: 0;
+    box-shadow: none;
+}
+
+
+/********** BlockUI *********/
+.blockUI.blockOverlay {
+    z-index: 2222 !important;
+}
+.blockUI.blockMsg.blockPage {
+    z-index: 9999 !important;
+    position: fixed;
+    padding: 0px;
+    margin: 0px;
+    width: 30%;
+    top: 40%;
+    left: 35%;
+    text-align: center;
+    color: rgb(154, 33, 33) !important;
+    border: none;
+    background-color: #fff !important;
+    cursor: wait;
+    display: block;
+    padding: 15px 20px !important;
+    border-radius: 50px;
+    border: none !important;
+}
+
+@media(max-width: 767px) {
+    .blockUI.blockMsg.blockPage {
+        width: 80% !important;
+        left: 10% !important;
+    }
+}
 
 
 /******* Misc ******/

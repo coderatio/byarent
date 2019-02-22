@@ -41,7 +41,7 @@
 
 
     <!-- Header -->
-    <div id="header">
+    <div id="header" class="byarent-header">
         <div class="container">
 
             <!-- Left Side Content -->
@@ -122,7 +122,7 @@
                     <div class="d-inline cart-drowpdown-wrapper">
                         <a href="" class="cart widget-icon prevented-link" aria-expanded="false">
                             <i uk-icon="icon: cart; ratio: 2"></i>
-                            <span class="cart-counter badge @if(!ByarentCart::hasItems()) hidden @endif" id="cart-counter">{{ ByarentCart::count() }}</span>
+                            <span class="cart-counter badge @if(!ByarentCart::hasItems()) hidden @endif" id="cart-dropdown-counter">{{ ByarentCart::count() }}</span>
                         </a>
                         @include('components.dropdown-cart', ['items' => ByarentCart::items()])
                     </div>

@@ -54,15 +54,9 @@ class ByarentCart implements CartInterface
         return $this->itemsInCart;
     }
 
-    public function item($itemID): Collection
+    public function item($itemID)
     {
-        if ($this->count() > 0) {
-            foreach ($this->items() as $item) {
-                if (isset($item['id']) && $item['id'] == $itemID) {
-                    return $item;
-                }
-            }
-        }
+        return $this->getCartByItemID($itemID);
     }
 
     public function getCartByItemID($itemID)
@@ -78,14 +72,16 @@ class ByarentCart implements CartInterface
         }
     }
 
-    public function remove($itemID): self
+    public function remove($itemID): bool
     {
         $item = $this->getCartByItemID($itemID);
         if ($item) {
             $this->cart->remove($item->rowId);
+
+            return true;
         }
 
-        return $this;
+        return false;
     }
 
     public function exist($itemID): bool
@@ -125,14 +121,18 @@ class ByarentCart implements CartInterface
         return $this;
     }
 
-    public function clear(): void
+    public function clear(): bool
     {
-        $this->cart->destroy();
+        if ($this->cart->destroy()) {
+            return true;
+        };
+
+        return false;
     }
 
     public function hasItems(): bool
     {
-        return !empty($this->itemsInCart) ? true : false;
+        return $this->count() ? true : false;
     }
 
     public function count(): int

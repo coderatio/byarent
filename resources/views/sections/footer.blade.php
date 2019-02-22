@@ -71,7 +71,9 @@
 <!-- Scripts
 ================================================== -->
 {{--<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>--}}
+{{--Laravel compiles--}}
 <script src="{{ asset('js/app.js') }}"></script>
+{{--Other vendors--}}
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/jquery-2.2.0.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/chosen.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/magnific-popup.min.js') }}"></script>
@@ -82,16 +84,25 @@
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/masonry.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/mmenu.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/tooltips.min.js') }}"></script>
+{{--Sweetalert--}}
+<script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script>
+{{--BlocUI--}}
+<script type="text/javascript" src="{{ asset('vendor/jquery-blockUI/jquery.blockUI.js') }}"></script>
+
+{{--UiKit--}}
 <script type="text/javascript" src="{{ asset('vendor/uikit/js/uikit.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/uikit/js/uikit-icons.min.js') }}"></script>
+{{--Template custom js--}}
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/custom.js') }}"></script>
+{{--App custom js--}}
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 
 
 <!-- Google Autocomplete -->
 <script>
     $(document).ready(function () {
-        const currency = '{{ setting('payments.currency_symbol') }}'
+        const currency = '{{ setting('payments.currency_symbol') }}';
+        const _token = $('meta[name="csrf-token"]').attr('content');
     })
 
     function initAutocomplete() {

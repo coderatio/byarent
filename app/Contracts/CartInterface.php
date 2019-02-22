@@ -10,7 +10,7 @@ interface CartInterface
 {
     public function store(Request $request);
     public function items() ;
-    public function item($itemID) : Collection ;
+    public function item($itemID);
     public function remove($itemID);
     public function exist($itemID);
     public function incrementQuantity($itemID, $quantity);
@@ -19,6 +19,6 @@ interface CartInterface
     public function count() : int ;
     public function get() : Collection ;
     public function getDropdownTable($items) : string ;
-    public function clear() : void ;
+    public function clear() : bool ;
 
 }

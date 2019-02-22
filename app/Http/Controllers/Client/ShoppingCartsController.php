@@ -64,9 +64,35 @@ class ShoppingCartsController extends Controller
             ]);
 
         } catch (\Exception $exception) {
-            return response()->json(['deleted' => false, 'error' => $exception->getMessage()]);
+            return response()->json(['deleted' => false, 'error' => $exception->getMessage()  . " on {$exception->getFile()}"]);
         }
 
+    }
+
+    public function update(Request $request)
+    {
+        $itemsIds = $request->items;
+
+        foreach ($itemsIds as $id) {
+            $item = $this->cart->item($id);
+            if ($item) {
+                $quantity = \request("itemQuantity{$id}");;
+                $this->cart->instance()->update($item->rowId, $quantity);
+            }
+        }
+
+        $contents = view('components.cart-items', [
+            'items' => ByarentCart::items()
+        ])->render();
+
+        return response()->json([
+            'items' => [
+                'count' => ByarentCart::count(),
+                'items' => ByarentCart::items(),
+            ],
+            'dropdownContents' => ByarentCart::getDropdownTable(ByarentCart::items()),
+            'contents' => $contents
+        ]);
     }
 
     public function clear(Request $request)

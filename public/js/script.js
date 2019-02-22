@@ -16,7 +16,11 @@ $(document).ready(function () {
     });
 
     // Add items to cart
+    initiateAddItemToCart();
+});
 
+// Add an item to cart
+function initiateAddItemToCart() {
     let addTrigger = $('.add-to-cart');
 
     addTrigger.click(function (e) {
@@ -60,10 +64,10 @@ $(document).ready(function () {
     $('.prevented-link').click((e) => {
         e.preventDefault();
     });
+}
 
-});
-
-// Functions
+// Remove a single item from shopping cart
+// In both dropdown cart table and cart page table
 initiateCartDropdownItemRemoval();
 
 function initiateCartDropdownItemRemoval() {
@@ -84,30 +88,38 @@ function initiateCartDropdownItemRemoval() {
             closeOnConfirm: false,
             showLoaderOnConfirm: true
         }, function (yes) {
-            $.post(`/carts/remove`, { itemID: itemID, _token: csrf_token }, (data) => {
+            if (yes) {
+                $.post(`/carts/remove`, { itemID: itemID, _token: csrf_token }, (data) => {
 
-                if (data.deleted && data.items.count > 0) {
-                    dropdownCartCounter.removeClass('hidden').html(data.items.count);
-                    cartItemsDropdownHolder.html(data.newContents);
-                } else {
-                    dropdownCartCounter.addClass('hidden');
-                    cartItemsDropdownHolder.html(data.newContents);
-                }
+                    if (data.deleted && data.items.count > 0) {
+                        dropdownCartCounter.removeClass('hidden').html(data.items.count);
+                        cartItemsDropdownHolder.html(data.newContents);
+                        swal('Success', 'Item removed from cart successfully!', 'success');
+                    } else if(data.deleted && data.items.count == 0) {
+                        dropdownCartCounter.addClass('hidden');
+                        cartItemsDropdownHolder.html(data.newContents);
+                        swal('Success', 'Item removed from cart successfully!', 'success');
+                    }
 
-                swal('Success', 'Item removed from cart successfully!', 'success');
+                    if (!data.deleted) {
+                        swal('Error', data.error, 'error');
+                    }
 
-                initiateCartDropdownItemRemoval();
-                initiateCartClearing();
+                    initiateAutoUpdateItemsInCart();
+                    initiateUpdateItemsInsideCart();
+                    initiateCartDropdownItemRemoval();
+                    initiateCartClearing();
 
-            }).fail((error) => {
-                swal('Error', 'Something went wrong!', 'error');
-                console.log(error)
-            });
+                }).fail((error) => {
+                    swal('Error', 'Something went wrong!', 'error');
+                    console.log(error)
+                });
+            }
         });
     });
 }
 
-// Clearing cart
+// Remove all items in shopping cart
 initiateCartClearing();
 
 function initiateCartClearing() {
@@ -136,11 +148,65 @@ function initiateCartClearing() {
                 console.log(data.contents);
                 swal('Success', 'Cart cleared successfully!', 'success');
 
+                initiateAutoUpdateItemsInCart();
+
             }).fail((error) => {
                 console.log(error);
                 swal('Error', 'Something went wrong in the server!', 'error')
             });
         });
+    });
+}
+
+// Update items inside cart
+initiateUpdateItemsInsideCart();
+
+function initiateUpdateItemsInsideCart() {
+    let updateBtn = $('#update-inside-cart');
+    let cartItemsHolder = $('#items-inside-cart-holder');
+    let dropdownCartCounter = $('.cart-counter#cart-dropdown-counter');
+    let cartItemsDropdownHolder = $('.uk-dropdown-grid#cart-dropdown-holder');
+
+    updateBtn.click(function (e) {
+        e.preventDefault();
+
+        blockUI('Updating cart');
+
+        let itemsForm = $('#inside-cart-form').serializeArray();
+
+        $.post('/carts/update', itemsForm, (data) => {
+            unblockUI();
+
+            cartItemsHolder.html(data.contents);
+
+            if (data.items.count > 0) {
+                dropdownCartCounter.removeClass('hidden').html(data.items.count);
+            } else {
+                dropdownCartCounter.addClass('hidden').html(0);
+            }
+
+            cartItemsDropdownHolder.html(data.dropdownContents);
+
+            initiateUpdateItemsInsideCart();
+            initiateCartDropdownItemRemoval();
+            initiateCartClearing();
+
+        }).fail((error) => {
+            unblockUI();
+            console.log(error);
+        });
+    })
+}
+
+//Auto update items in cart.
+function initiateAutoUpdateItemsInCart() {
+    $.post('/items-in-cart/update', { _token: csrf_token }, (data) => {
+        let itemsInCartHolder = $('#items-inside-cart-holder');
+        itemsInCartHolder.html(data.contents);
+        initiateUpdateItemsInsideCart();
+        initiateCartDropdownItemRemoval();
+    }).fail((error) => {
+        console.log(error);
     });
 }
 

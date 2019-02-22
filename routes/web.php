@@ -16,6 +16,7 @@ use App\Http\Controllers\Client\CheckoutController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\HouseController;
 use App\Http\Controllers\Client\HousesController;
+use App\Http\Controllers\Client\ItemsInCartController;
 use App\Http\Controllers\Client\OrdersController;
 use App\Http\Controllers\Client\ShoppingCartsController;
 
@@ -31,6 +32,9 @@ Route::get('order/{id}', [OrdersController::class, 'index'])->name('order.index'
 Route::post('carts/store', [ShoppingCartsController::class, 'store'])->name('carts.store');
 Route::post('carts/remove', [ShoppingCartsController::class, 'destroy'])->name('carts.destroy');
 Route::post('carts/clear', [ShoppingCartsController::class, 'clear'])->name('carts.clear');
+Route::post('carts/update', [ShoppingCartsController::class, 'update'])->name('carts.update');
+
+Route::post('items-in-cart/update', [ItemsInCartController::class, 'update'])->name('items-in-cart.update');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

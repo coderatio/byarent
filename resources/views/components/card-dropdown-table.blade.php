@@ -17,12 +17,12 @@
                         </td>
                         <td>
                             <span class="cart-dropdown-price" id="cartPrice{{ $item->id }}">
-                                <b>{{ setting('payments.currency_symbol') . ' '. \App\Services\Money::shorten($price) }}</b>
+                                <b>{{ ByarentCart::formattedPrice($price) }}</b>
                             </span><br/>
                             {{ $item->options->house->name }}
                         </td>
                         <td>
-                            <a href="" class="cart-dropdown-remove-item text-danger" id="{{ $item->id }}" uk-icon="icon: close"></a>
+                            <a href="" class="cart-dropdown-remove-item text-danger uk-toocltip" id="{{ $item->id }}" uk-icon="icon: close" uk-tooltip="title: Remove"></a>
                         </td>
                     </tr>
                     @php $serialNo++; @endphp
@@ -34,10 +34,16 @@
             </table>
         </div>
     </div>
+    <div class="text-center">
+        Total =
+        <span class="font-weight-bold">
+            {{ ByarentCart::instance()->total() }}
+        </span>
+    </div>
     <div class="d-block text-center margin-top-20">
         <div class="cart-dropown-footer">
             <a href="{{ route('cart.index') }}" class="btn btn-sm btn-default secondary-color margin-right-15">
-                View all <i class="fa fa-angle-right"></i>
+                Go to cart <i class="fa fa-angle-right"></i>
             </a>
             <a href="#" class="btn btn-sm btn-default primary-color cart-dropdown-clear" id="cart-dropdown-clear">
                 <i class="sl sl-icon-trash"></i> Clear

@@ -15,6 +15,11 @@ input[type="submit"], button, #tiptip_content
     font-weight: normal;
 }
 
+input.exclusive, input[type=text].exclusive, input[type=password].exclusive, input[type=email].exclusive, input[type=number].exclusive, textarea.exclusive, select.exclusive {
+    height: 41px !important;
+    line-height: 41px !important;
+}
+
 input[type="password"] {
     letter-spacing: 6px;
 }
@@ -330,6 +335,24 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 /************* Items ************/
 .listing-badges span {
     background-color: rgba(65, 65, 103, 0.75);
+}
+
+.add-to-cart-icon {
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    z-index: 1011;
+    outline: none;
+    border: none;
+    right: 64px;
+    bottom: 27px;
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+    display: block;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 28px;
 }
 
 .listing-img-container:before {
@@ -688,8 +711,24 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     box-shadow: none;
 }
 
+.sa-confirm-button-container .btn.confirm {
+    display: inline-block;
+    padding-left: 25px;
+    padding-right: 25px;
+    background: #a72020;
+    border-color: #a72020;
+}
 
-/********** BlockUI *********/
+.sa-confirm-button-container .btn.confirm:active,
+.sa-confirm-button-container .btn.confirm:focus {
+    outline: 0;
+    box-shadow: none;
+    background: #a72020;
+    border-color: #a72020;
+}
+
+
+    /********** BlockUI *********/
 .blockUI.blockOverlay {
     z-index: 2222 !important;
 }
@@ -719,6 +758,13 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     }
 }
 
+/******** Tooltips ******/
+.uk-tooltip {
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #e32b2b;
+}
+
 
 /******* Misc ******/
 .secondary-color {
@@ -728,3 +774,5 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 .primary-color {
     color: #e32b2b !important;
 }
+
+

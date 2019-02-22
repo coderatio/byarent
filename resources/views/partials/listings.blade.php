@@ -26,6 +26,7 @@
 
                                 <div class="listing-img-content">
                                     <span class="listing-price">{{ $house->priceWithCurrency }}<i>{{ $house->subPrice }}</i></span>
+                                    <span class="add-to-cart-icon sl sl-icon-basket add-to-cart" uk-tooltip="title: Add to Cart" id="{{ $house->id }}"></span>
                                     <span class="like-icon with-tip addToFavorite" id="{{ $house->id }}" data-tip-content="Add to Favorites"></span>
                                 </div>
 

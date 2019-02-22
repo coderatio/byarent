@@ -24,6 +24,11 @@ class ByarentCart implements CartInterface
         $this->cart = Cart::instance($this->cartInstance);
     }
 
+    public function instance()
+    {
+        return $this->cart;
+    }
+
     public function store(Request $request): self
     {
         $item = House::find($request->itemID);
@@ -42,6 +47,17 @@ class ByarentCart implements CartInterface
         return $this->updateItemsInCart();
     }
 
+    public function updateQuantity($itemID, $quantity)
+    {
+        if ($this->exist($itemID)) {
+            $item = $this->getCartByItemID($itemID);
+
+            Cart::instance($this->cartInstance)->update($item->rowId, $quantity);
+        }
+
+        return $this;
+    }
+
     protected function updateItemsInCart()
     {
         $this->itemsInCart = Cart::instance($this->cartInstance)->content();
@@ -51,7 +67,7 @@ class ByarentCart implements CartInterface
 
     public function items(): Collection
     {
-        return $this->itemsInCart;
+        return $this->hasItems() ? $this->itemsInCart : $this->collect([]);
     }
 
     public function item($itemID)
@@ -59,9 +75,9 @@ class ByarentCart implements CartInterface
         return $this->getCartByItemID($itemID);
     }
 
-    public function getCartByItemID($itemID)
+    protected function getCartByItemID($itemID)
     {
-        if ($this->count() > 0) {
+        if ($this->hasItems()) {
             foreach ($this->cart->content() as $cart) {
                 if ($cart->id == $itemID) {
                     return $cart;
@@ -74,9 +90,8 @@ class ByarentCart implements CartInterface
 
     public function remove($itemID): bool
     {
-        $item = $this->getCartByItemID($itemID);
-        if ($item) {
-            $this->cart->remove($item->rowId);
+        if ($this->exist($itemID)) {
+            $this->cart->remove($this->getCartByItemID($itemID)->rowId);
 
             return true;
         }
@@ -87,7 +102,7 @@ class ByarentCart implements CartInterface
     public function exist($itemID): bool
     {
         $item = $this->getCartByItemID($itemID);
-        if ($item && $item->id === $itemID) {
+        if ($item && $item->id == $itemID) {
             return true;
         }
 

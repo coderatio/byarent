@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Cart;
 use App\Facades\ByarentCart;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Supports\ByarentCart as ByarentCartService;
+use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartsController extends Controller
 {
@@ -25,29 +27,29 @@ class ShoppingCartsController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        //ByarentCart::clear();
+        $this->cart->store($request);
 
-        try {
-
-            $this->cart->store($request);
-
-            return response()->json([
-                'items' => [
-                    'count' => $this->cart->count(),
-                    'items' => $this->cart->items()
-                ],
-                'contents' => $this->cart->getDropdownTable($this->cart->items())
-            ]);
-
-        } catch (\Exception $exception) {
-
-        }
+        return response()->json([
+            'items' => [
+                'count' => $this->cart->count(),
+                'items' => $this->cart->items()
+            ],
+            'contents' => $this->cart->getDropdownTable($this->cart->items())
+        ]);
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request) : JsonResponse
     {
         try {
             $item = $this->cart->item($request->itemID);
+
+            if (Auth::check()) {
+                $cartItem = Cart::getUserCart($item->id);
+                
+                if ($cartItem) {
+                    $cartItem->delete();
+                }
+            }
 
             if (!$this->cart->remove($item->id)) {
                 return response()->json(['deleted' => false, 'error' => 'Item not found!']);
@@ -64,26 +66,36 @@ class ShoppingCartsController extends Controller
             ]);
 
         } catch (\Exception $exception) {
-            return response()->json(['deleted' => false, 'error' => $exception->getMessage()  . " on {$exception->getFile()}"]);
+            return response()->json(['deleted' => false, 'error' => $exception->getMessage()]);
         }
 
     }
 
-    public function update(Request $request)
+    public function update(Request $request) : JsonResponse
     {
-        $itemsIds = $request->items;
-
-        foreach ($itemsIds as $id) {
+        foreach ($request->items as $id) {
             $item = $this->cart->item($id);
             if ($item) {
-                $quantity = \request("itemQuantity{$id}");;
+                $quantity = \request("itemQuantity{$id}");
+
+                if (Auth::check()) {
+                    $cartItem = Cart::getUserCart($item->id, Auth::user()->id);
+
+                    if ($cartItem) {
+                        $cartItem->update(['qty' => $quantity]);
+                        if ($quantity < 1) {
+                            $cartItem->delete();
+                        }
+                    }
+                }
+
                 $this->cart->instance()->update($item->rowId, $quantity);
             }
         }
 
-        $contents = view('components.cart-items', [
-            'items' => ByarentCart::items()
-        ])->render();
+        $contents = view('components.cart-items')
+            ->withItems(ByarentCart::items())
+            ->render();
 
         return response()->json([
             'items' => [
@@ -95,9 +107,14 @@ class ShoppingCartsController extends Controller
         ]);
     }
 
-    public function clear(Request $request)
+    public function clear(Request $request) : JsonResponse
     {
+        if (Auth::check()) {
+            Auth::user()->carts()->delete();
+        }
+
         if ($this->cart->clear()) {
+
             return response()->json([
                 'cleared' => true,
                 'items' => [

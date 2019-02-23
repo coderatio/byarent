@@ -16,7 +16,7 @@ class ItemsInCartController extends Controller
 
         return response()->json([
             'items' => [
-                'count' => ByarentCart::hasItems() ? ByarentCart::count() : 0,
+                'count' => ByarentCart::count(),
                 'items' => ByarentCart::items(),
             ],
 

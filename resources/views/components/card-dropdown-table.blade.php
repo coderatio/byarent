@@ -35,10 +35,11 @@
         </div>
     </div>
     <div class="text-center">
-        Total =
-        <span class="font-weight-bold">
-            {{ ByarentCart::instance()->total() }}
+        <div class="uk-placeholder margin-left-30 margin-right-30 p-3 bg-light">
+            <span class="font-weight-bold lead">
+            {{ setting('payments.currency_symbol') . ' ' . ByarentCart::instance()->total() }}
         </span>
+        </div>
     </div>
     <div class="d-block text-center margin-top-20">
         <div class="cart-dropown-footer">

@@ -20,6 +20,10 @@
             </div>
             <!-- Carousel / End -->
 
+            <div class="col-md-12 text-center mt-3">
+                <a href="{{ route('houses.index') }}" class="text-uppercase btn btn-outline-danger" style="letter-spacing: 2px;">Browse all <i class="sl sl-icon-arrow-right"></i></a>
+            </div>
+
         </div>
     </div>
 
@@ -27,10 +31,14 @@
     <section class="fullwidth margin-top-95 margin-bottom-0">
 
         <!-- Box Headline -->
-        <h3 class="headline-box">Articles & Tips</h3>
+        <h3 class="headline-box hidden">Articles & Tips</h3>
 
         <div class="container">
             <div class="row">
+
+                <div class="col-md-12 " style="margin-top: -10px;">
+                    <h2 class="text-center">Articles & Tips</h2>
+                </div>
 
                 <div class="col-md-4">
 

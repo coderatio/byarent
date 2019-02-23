@@ -10,7 +10,10 @@ use App\Services\Money;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Cart as CartModel;
+use Illuminate\Support\Str;
 
 class ByarentCart implements CartInterface
 {
@@ -21,6 +24,11 @@ class ByarentCart implements CartInterface
     public function __construct()
     {
         $this->itemsInCart = Cart::instance($this->cartInstance)->content();
+
+        if (auth()->check()) {
+            $this->itemsInCart = $this->dbClonedCartContents();
+        }
+
         $this->cart = Cart::instance($this->cartInstance);
     }
 
@@ -78,7 +86,7 @@ class ByarentCart implements CartInterface
     protected function getCartByItemID($itemID)
     {
         if ($this->hasItems()) {
-            foreach ($this->cart->content() as $cart) {
+            foreach (Cart::instance($this->cartInstance)->content() as $cart) {
                 if ($cart->id == $itemID) {
                     return $cart;
                 }
@@ -136,9 +144,73 @@ class ByarentCart implements CartInterface
         return $this;
     }
 
+    public function synchronizeTemporaryWithDBCart()
+    {
+        if ($this->hasItems()) {
+            foreach ($this->items() as $item) {
+                $user = Auth::user();
+                $cartItem = $this->item($item->id);
+                $particulars = ['userID' => $user->id, 'itemID' => $item->id];
+                $carts = CartModel::where($particulars)->get();
+                if ($carts) {
+                    CartModel::updateOrCreate($particulars, [
+                        'itemID' => $item->id,
+                        'rowID' => $cartItem->rowId,
+                        'userID' => $user->id,
+                        'qty' => $carts->count() + $item->qty,
+                        'itemName' => $item->name
+                    ]);
+
+                } else {
+                    CartModel::updateOrCreate($particulars, [
+                        'rowID' => $cartItem->rowId,
+                        'itemID' => $item->id,
+                        'userID' => $user->id,
+                        'itemName' => $item->name
+                    ]);
+                }
+            }
+
+            $this->clear();
+        }
+
+        return $this;
+    }
+
+    public function dbClonedCartContents()
+    {
+        foreach (CartModel::all() as $cart) {
+            $house = House::find($cart->itemID);
+
+            if ($this->exist($house->id)) {
+                $item = $this->item($house->id);
+                $cart->update(['rowID' => $item->rowId]);
+                Cart::instance($this->cartInstance)->update($item->rowId, ['qty' => $cart->qty]);
+            } else {
+                Cart::instance($this->cartInstance)->add([
+                    'id' => $cart->itemID,
+                    'name' => $house->name,
+                    'qty' => $cart->qty,
+                    'price' => $house->parsedPrice,
+                    'options' =>  [
+                        'house' => $house,
+                        'formattedPrice' => $house->parsedPrice
+                    ]
+                ]);
+            }
+        }
+
+        /*if (CartModel::count() === 0) {
+            $this->clear();
+        }*/
+
+        $this->itemsInCart = Cart::instance($this->cartInstance)->content();
+        return $this->itemsInCart;
+    }
+
     public function clear(): bool
     {
-        if ($this->cart->destroy()) {
+        if (Cart::instance($this->cartInstance)->destroy()) {
             return true;
         };
 
@@ -152,7 +224,7 @@ class ByarentCart implements CartInterface
 
     public function count(): int
     {
-        return $this->cart->count();
+        return Cart::instance($this->cartInstance)->count();
     }
 
     public function get(): Collection

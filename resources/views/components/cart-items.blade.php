@@ -4,11 +4,11 @@
         <div class="card">
             <div class="card-body">
                 <div class="cart-items table-responsive">
-                    <table class="table cart-items-table">
+                    <table class="uk-table table uk-table-hover cart-items-table">
                         <thead>
                         <tr>
-                            <th>Product</th>
-                            <th style="width: 12%;">Qty</th>
+                            <th>Item</th>
+                            <th style="width: 12%;">Quantity</th>
                             <th>Unit Price</th>
                             <th>Subtotal</th>
                             <th></th>
@@ -41,13 +41,13 @@
                         <tfoot>
                         <tr>
                             <td colspan="2"></td>
-                            <td>Subtotal</td>
-                            <td>{{ ByarentCart::instance()->subtotal() }}</td>
+                            <th>Subtotal</th>
+                            <td colspan="2">{{ ByarentCart::instance()->subtotal() }}</td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
-                            <td>Tax</td>
-                            <td>{{ ByarentCart::instance()->tax() }}</td>
+                            <th>Tax</th>
+                            <td colspan="2">{{ ByarentCart::instance()->tax() }}</td>
                         </tr>
                         </tfoot>
                     </table>
@@ -61,7 +61,7 @@
                 </span>
                 </h3>
                 <div class="pr-4">
-                    <button type="submit" class="update-inside-cart btn btn-outline-secondary" id="update-inside-cart" style="outline: none;box-shadow: none">Update cart</button>
+                    <button type="submit" class="update-inside-cart btn btn-secondary pr-3 mb-2 pl-3" id="update-inside-cart" style="outline: none;box-shadow: none">Update cart</button>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
         <div class="row justify-content-end margin-top-40 cart-items-buttons">
             <div class="col-md-12 text-right">
                 <a href="{{ route('houses.index') }}" class="button button-default">Continue Shopping</a>
-                <a href="{{ route('checkout.index', 1) }}" class="button text-uppercase">Checkout <i uk-icon="icon: arrow-right"></i> </a>
+                <a href="{{ route('checkout.index') }}" class="button text-uppercase">Checkout <i uk-icon="icon: arrow-right"></i> </a>
             </div>
         </div>
     </form>

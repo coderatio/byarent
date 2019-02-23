@@ -109,9 +109,14 @@
                         <ul>
                             @if (auth()->check())
                                 <li><a href="my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
-                                <li><a href="index-2.html"><i class="sl sl-icon-power"></i> Log Out</a></li>
                                 <li><a href="my-bookmarks.html"><i class="sl sl-icon-star"></i> Favorites</a></li>
                                 <li><a href="my-properties.html"><i class="sl sl-icon-docs"></i> My Orders</a></li>
+                                <li>
+                                    <form action="{{ route('logout.index') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn-link btn primary-color"><i class="sl sl-icon-power"></i> Log Out</button>
+                                    </form>
+                                </li>
                             @else
                                 <li><a href="my-profile.html"><i class="sl sl-icon-login"></i> Login</a></li>
                                 <li><a href="my-profile.html"><i class="sl sl-icon-plus"></i> Register</a></li>

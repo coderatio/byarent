@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Facades\ByarentCart as ByarentCartFacade;
 use App\Supports\ByarentCart;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,5 +33,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('byarent-cart', function () {
             return new ByarentCart();
         });
+
+        if($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<html lang="{{ config('app.locale">
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <!-- Basic Page Needs
@@ -10,13 +10,13 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/vendor/animate/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/vendor/template/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/vendor/sweetalert/sweetalert.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/vendor/uikit/css/uikit.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/vendor/template/css/colors/red.css') }}" id="colors">
-    <link rel="stylesheet" href="{{ asset('public/css/custom.css') }}" id="colors">
+    <link rel="stylesheet" href="/public/css/app.css">
+    <link rel="stylesheet" href="/public/vendor/animate/animate.css">
+    <link rel="stylesheet" href="/public/vendor/template/css/style.css">
+    <link rel="stylesheet" href="/public/vendor/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="/public/vendor/uikit/css/uikit.min.css">
+    <link rel="stylesheet" href="/public/vendor/template/css/colors/red.css" id="colors">
+    <link rel="stylesheet" href="public/css/custom.css" id="colors">
 
 </head>
 

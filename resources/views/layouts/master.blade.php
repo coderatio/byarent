@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale">
+<html lang="{{ config('app.locale') }}">
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <!-- Basic Page Needs

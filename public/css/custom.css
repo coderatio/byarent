@@ -353,6 +353,23 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     #header .right-side.loggedin .user-menu .user-name:after {
         top:0;
     }
+
+    .d-inline.cart-dropdown {
+        display: inline !important;
+        margin-right: -15px !important;
+    }
+
+    .header-widget .user-menu {
+        margin-right: -10px !important;
+    }
+
+    .header-widget {
+        right: -15px;
+    }
+
+    .user-menu .user-name:after {
+        right: 5px;
+    }
 }
 
 @media (max-width: 1239px) and (min-width: 992px) {

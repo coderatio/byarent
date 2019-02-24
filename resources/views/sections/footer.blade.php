@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-6">
-                <img class="footer-logo" src="/public/vendor/template/images/logo.png') }}" alt="Logo" style="margin-top: -10px;">
+                <img class="footer-logo" src="/public/vendor/template/images/logo.png" alt="Logo" style="margin-top: -10px;">
                 <br>
                 <p>
                     BYARENT is a home buying platform.It allows potential homeowners to view houses and buy preferred on. unc ut lacinia tortor morbi ultricies laoreet.

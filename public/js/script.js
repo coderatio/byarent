@@ -2,6 +2,7 @@ const csrf_token = $('meta[name="csrf-token"]').attr('content');
 let dropdownCartCounter = $('.cart-counter#cart-dropdown-counter');
 let cartItemsDropdownHolder = $('.uk-dropdown-grid#cart-dropdown-holder');
 let checkoutCartSummaryHolder = $('#checkoutCartSummaryHolder');
+const baseUrl = $('#appUrl').val();
 
 $(document).ready(function () {
     // Sticky header
@@ -31,7 +32,7 @@ function initiateAddItemToCart() {
 
         blockUI('Adding item to cart');
 
-        $.post('/carts/store', {
+        $.post(`${baseUrl}/carts/store`, {
             itemID: itemID,
             _token: csrf_token
         }, (data) => {
@@ -90,7 +91,7 @@ function initiateCartDropdownItemRemoval() {
             showLoaderOnConfirm: true
         }, function (yes) {
             if (yes) {
-                $.post(`/carts/remove`, { itemID: itemID, _token: csrf_token }, (data) => {
+                $.post(`${baseUrl}/carts/remove`, { itemID: itemID, _token: csrf_token }, (data) => {
 
                     if (data.deleted && data.items.count > 0) {
                         dropdownCartCounter.removeClass('hidden').html(data.items.count);
@@ -139,7 +140,7 @@ function initiateCartClearing() {
             closeOnConfirm: false,
             showLoaderOnConfirm: true,
         }, function (yes) {
-            $.post('/carts/clear', { _token: csrf_token }, (data) => {
+            $.post(`${baseUrl}/carts/clear`, { _token: csrf_token }, (data) => {
                 cartItemsDropdownHolder.html(`
                     <div class="">
                         <div class="pr-2 pl-4 pb-2">
@@ -177,7 +178,7 @@ function initiateUpdateItemsInsideCart() {
 
         let itemsForm = $('#inside-cart-form').serializeArray();
 
-        $.post('/carts/update', itemsForm, (data) => {
+        $.post(`${baseUrl}/carts/update`, itemsForm, (data) => {
             unblockUI();
 
             cartItemsHolder.html(data.contents);
@@ -204,7 +205,7 @@ function initiateUpdateItemsInsideCart() {
 
 //Auto update items in cart.
 function initiateAutoUpdateItemsInCart() {
-    $.post('/items-in-cart/update', { _token: csrf_token }, (data) => {
+    $.post(`${baseUrl}/items-in-cart/update`, { _token: csrf_token }, (data) => {
         let itemsInCartHolder = $('#items-inside-cart-holder');
         itemsInCartHolder.html(data.contents);
         checkoutCartSummaryHolder.html(data.checkoutSummary);

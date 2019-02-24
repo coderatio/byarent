@@ -65,7 +65,7 @@
 
 <!-- Back To Top Button -->
 <div id="backtotop"><a href="#"></a></div>
-
+<input type="hidden" name="" id="appUrl" value="{{ url('/') }}">
 
 <!-- Scripts
 ================================================== -->
@@ -100,17 +100,20 @@
 
 {{--Template custom js--}}
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/custom.js') }}"></script>
+
+<script>
+    $(document).ready(function () {
+        const currency = '{{ setting('payments.currency_symbol') }}';
+        const _token = $('meta[name="csrf-token"]').attr('content');
+        let appUrl = '{{ url('/') }}';
+    });
+</script>
 {{--App custom js--}}
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 
 
 <!-- Google Autocomplete -->
 <script>
-    $(document).ready(function () {
-        const currency = '{{ setting('payments.currency_symbol') }}';
-        const _token = $('meta[name="csrf-token"]').attr('content');
-    })
-
     function initAutocomplete() {
         let input = document.getElementById('autocomplete-input');
         if (input) {

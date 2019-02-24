@@ -22,7 +22,7 @@
                             {{ $item->options->house->name }}
                         </td>
                         <td>
-                            <a href="" class="cart-dropdown-remove-item text-danger uk-toocltip" id="{{ $item->id }}" uk-icon="icon: close" uk-tooltip="title: Remove"></a>
+                            <a href="" class="cart-dropdown-remove-item text-danger uk-toocltip" id="{{ $item->id }}" uk-icon="icon: close; ratio: 2" uk-tooltip="title: Remove"></a>
                         </td>
                     </tr>
                     @php $serialNo++; @endphp
@@ -41,7 +41,7 @@
         </span>
         </div>
     </div>
-    <div class="d-block text-center margin-top-20">
+    <div class="d-block text-center margin-top-20" style="padding-left: 0;">
         <div class="cart-dropown-footer">
             <a href="{{ route('cart.index') }}" class="btn btn-sm btn-default secondary-color margin-right-15">
                 Go to cart <i class="fa fa-angle-right"></i>

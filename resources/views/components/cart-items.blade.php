@@ -11,7 +11,7 @@
                             <th style="width: 12%;">Quantity</th>
                             <th>Unit Price</th>
                             <th>Subtotal</th>
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                         </thead>
 
@@ -30,7 +30,7 @@
                                 <td>{{ ByarentCart::formattedPrice($row->price) }}</td>
                                 <td>{{ ByarentCart::formattedPrice($row->total) }}</td>
                                 <td>
-                                    <a href="" class="cart-dropdown-remove-item text-danger uk-toocltip" id="{{ $row->id }}" uk-icon="icon: close" uk-tooltip="title: Remove"></a>
+                                    <a href="" class="cart-dropdown-remove-item text-danger uk-toocltip" id="{{ $row->id }}" uk-icon="icon: close; ratio: 2" uk-tooltip="title: Remove"></a>
                                 </td>
                             </tr>
 

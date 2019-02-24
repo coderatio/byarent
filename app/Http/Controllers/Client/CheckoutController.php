@@ -13,6 +13,10 @@ class CheckoutController extends Controller
     {
         //auth()->logout();
 
+        if (!ByarentCart::hasItems()) {
+            return redirect()->route('cart.index');
+        }
+
         return view('checkout.index');
     }
 }

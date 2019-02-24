@@ -1,6 +1,7 @@
 const csrf_token = $('meta[name="csrf-token"]').attr('content');
 let dropdownCartCounter = $('.cart-counter#cart-dropdown-counter');
 let cartItemsDropdownHolder = $('.uk-dropdown-grid#cart-dropdown-holder');
+let checkoutCartSummaryHolder = $('#checkoutCartSummaryHolder');
 
 $(document).ready(function () {
     // Sticky header
@@ -94,10 +95,12 @@ function initiateCartDropdownItemRemoval() {
                     if (data.deleted && data.items.count > 0) {
                         dropdownCartCounter.removeClass('hidden').html(data.items.count);
                         cartItemsDropdownHolder.html(data.newContents);
+                        checkoutCartSummaryHolder.html(data.checkoutSummary);
                         swal('Success', 'Item removed from cart successfully!', 'success');
                     } else if(data.deleted && data.items.count == 0) {
                         dropdownCartCounter.addClass('hidden');
                         cartItemsDropdownHolder.html(data.newContents);
+                        checkoutCartSummaryHolder.html(data.checkoutSummary);
                         swal('Success', 'Item removed from cart successfully!', 'success');
                     }
 
@@ -145,9 +148,9 @@ function initiateCartClearing() {
                     </div>
                 `);
                 dropdownCartCounter.addClass('hidden').html(0);
-                console.log(data.contents);
-                swal('Success', 'Cart cleared successfully!', 'success');
+                checkoutCartSummaryHolder.html(data.checkoutSummary);
 
+                swal('Success', 'Cart cleared successfully!', 'success');
                 initiateAutoUpdateItemsInCart();
 
             }).fail((error) => {
@@ -185,6 +188,7 @@ function initiateUpdateItemsInsideCart() {
                 dropdownCartCounter.addClass('hidden').html(0);
             }
 
+            checkoutCartSummaryHolder.html(data.checkoutSummary);
             cartItemsDropdownHolder.html(data.dropdownContents);
 
             initiateUpdateItemsInsideCart();
@@ -203,6 +207,8 @@ function initiateAutoUpdateItemsInCart() {
     $.post('/items-in-cart/update', { _token: csrf_token }, (data) => {
         let itemsInCartHolder = $('#items-inside-cart-holder');
         itemsInCartHolder.html(data.contents);
+        checkoutCartSummaryHolder.html(data.checkoutSummary);
+
         initiateUpdateItemsInsideCart();
         initiateCartDropdownItemRemoval();
     }).fail((error) => {

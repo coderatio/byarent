@@ -29,6 +29,6 @@ class LoginController extends Controller
         }
 
         return back()->withInput()
-            ->with(['login-error' => 'Wrong credentials entered!']);
+            ->with(['error' => 'Wrong credentials entered!']);
     }
 }

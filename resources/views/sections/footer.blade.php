@@ -5,28 +5,27 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-6">
-                <img class="footer-logo" data-cfsrc="images/logo.png" alt="" style="display:none;visibility:hidden;">
-                <noscript><img class="footer-logo" src="images/logo.png" alt=""></noscript>
-                <br><br>
-                <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+                <img class="footer-logo" src="{{ asset('vendor/template/images/logo.png') }}" alt="Logo" style="margin-top: -10px;">
+                <br>
+                <p>
+                    BYARENT is a home buying platform.It allows potential homeowners to view houses and buy preferred on. unc ut lacinia tortor morbi ultricies laoreet.
+                </p>
             </div>
 
             <div class="col-md-4 col-sm-6 ">
                 <h4>Helpful Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Sign Up</a></li>
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="#">Add Property</a></li>
-                    <li><a href="#">Pricing</a></li>
+                    @if (!auth()->check())
+                        <li><a href="{{ route('account.index', 'login') }}#lg">Login</a></li>
+                        <li><a href="{{ route('account.index', 'register') }}#rg">Sign Up</a></li>
+                    @else
+                        <li><a href="{{ route('account.index') }}">My Account</a></li>
+                    @endif
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
 
                 <ul class="footer-links">
-                    <li><a href="#">FAQ</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Our Agents</a></li>
-                    <li><a href="#">How It Works</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <div class="clearfix"></div>
@@ -35,9 +34,9 @@
             <div class="col-md-3  col-sm-12">
                 <h4>Contact Us</h4>
                 <div class="text-widget">
-                    <span>12345 Little Lonsdale St, Melbourne</span> <br>
+                    <span>12 High Level, Makurdi, Benue, NG.</span> <br>
                     Phone: <span>(123) 123-456 </span><br>
-                    E-Mail:<span> <a href="#"><span class="__cf_email__" data-cfemail="670801010e040227021f060a170b024904080a">[email&#160;protected]</span></a> </span><br>
+                    E-Mail:<span> <a href="#">info@company.com</a> </span><br>
                 </div>
 
                 <ul class="social-icons margin-top-20">
@@ -54,7 +53,7 @@
         <!-- Copyright -->
         <div class="row">
             <div class="col-md-12">
-                <div class="copyrights">© 2016 Findeo. All Rights Reserved.</div>
+                <div class="copyrights">© {{ date('Y') }} {{ setting('site.title') }}. All Rights Reserved.</div>
             </div>
         </div>
 
@@ -92,6 +91,13 @@
 {{--UiKit--}}
 <script type="text/javascript" src="{{ asset('vendor/uikit/js/uikit.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/uikit/js/uikit-icons.min.js') }}"></script>
+
+{{--jQuery Validation--}}
+<script src="{{ asset('vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+
+{{--Bootstrap Notify--}}
+<script src="{{ asset('vendor/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+
 {{--Template custom js--}}
 <script type="text/javascript" src="{{ asset('vendor/template/scripts/custom.js') }}"></script>
 {{--App custom js--}}

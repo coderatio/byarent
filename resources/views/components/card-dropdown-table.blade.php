@@ -17,7 +17,7 @@
                         </td>
                         <td>
                             <span class="cart-dropdown-price" id="cartPrice{{ $item->id }}">
-                                <b>{{ ByarentCart::formattedPrice($price) }}</b>
+                                <b>{{ \App\Services\Money::shorten($item->options->house->parsedPrice) }}</b> x {{ $item->qty }}
                             </span><br/>
                             {{ $item->options->house->name }}
                         </td>

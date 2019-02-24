@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Home - Byarent platform')
+@section('title', 'Home - Get your dream home')
 
 @section('before-content')
     @include('sections.banner')
@@ -57,9 +57,9 @@
                                 <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae. </p>
                             </div>
 
-                            <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+                            <a href="#" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
                             <div class="post-author-image">
-                                <img src="{{ asset('vendor/template/images/agent-04.jpg') }}" alt="Agent Image">
+                                <img src="{{ asset('vendor/template/images/me.jpg') }}" alt="Agent Image">
                             </div>
                         </div>
 
@@ -85,9 +85,9 @@
                                 <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae. </p>
                             </div>
 
-                            <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+                            <a href="#" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
                             <div class="post-author-image">
-                                <img src="{{ asset('vendor/template/images/agent-03.jpg') }}" alt="Agent Image">
+                                <img src="{{ asset('vendor/template/images/me.jpg') }}" alt="Agent Image">
                             </div>
                         </div>
 
@@ -113,9 +113,9 @@
                                 <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae. </p>
                             </div>
 
-                            <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+                            <a href="#" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
                             <div class="post-author-image">
-                                <img src="{{ asset('vendor/template/images/agent-avatar.jpg') }}" alt="Agent Image">
+                                <img src="{{ asset('vendor/template/images/me.jpg') }}" alt="Agent Image">
                             </div>
                         </div>
 
@@ -131,10 +131,14 @@
 
 
     <!-- Flip banner -->
-    <a href="listings-half-map-grid-standard.html" class="flip-banner parallax" data-background="{{ asset('vendor/template/images/flip-banner-bg.jpg') }}" data-color="rgb(152, 41, 41)" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+    <a href="{{ route('houses.index') }}" class="flip-banner parallax" data-background="{{ asset('vendor/template/images/flip-banner-bg.jpg') }}" data-color="rgb(152, 41, 41)" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
         <div class="flip-banner-content">
             <h2 class="flip-visible">We help people and homes find each other</h2>
-            <h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
+            <span class="flip-visible text-white margin-top-30">
+                Click here to find your dream house
+            </span>
+            <i class="flip-visible margin-top-50 text-white fa fa-angle-down"></i>
+            <h2 class="flip-hidden">Browse houses <i class="sl sl-icon-arrow-right"></i></h2>
         </div>
     </a>
     <!-- Flip banner / End -->

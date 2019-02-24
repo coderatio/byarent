@@ -24,6 +24,15 @@ input[type="password"] {
     letter-spacing: 6px;
 }
 
+label.error {
+    font-size: 14px;
+    margin-top: -10px;
+    color: #e64949;
+    margin-bottom: 10px;
+}
+
+/******** Wrapper ********/
+
 #wrapper {
     background: #f9f1f1;
     overflow: hidden;
@@ -78,7 +87,7 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 #header.cloned #logo img {
     transform: translate3d(0,0,0);
     max-width: 100px;
-    margin-top: -5px;
+    margin-top: 5px;
 }
 
 #logo {
@@ -87,7 +96,11 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 }
 
 #header #logo img {
-    margin-top: -5px;
+    margin-top: 5px;
+}
+
+.mmenu-trigger {
+    background: transparent;
 }
 
 .mmenu-trigger:focus, .mmenu-trigger:active {
@@ -262,6 +275,16 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     .mmenu-trigger {
         z-index: 2;
     }
+
+    #header .left-side {
+        margin-top: -10px;
+        margin-bottom: -20px;
+    }
+
+    #header .right-side {
+        margin-top: -12px;
+        margin-bottom: -20px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -283,6 +306,60 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     .cart-drowpdown-wrapper .uk-dropdown .uk-grid {
         padding-left: 30px;
     }
+
+    .header-widget {
+        top: 2px;
+    }
+
+    .header-widget .user-menu {
+        float: none;
+        margin-bottom: 1px;
+    }
+
+    #header .right-side.loggedin .header-widget .user-menu {
+        padding-bottom: 55px;
+    }
+
+    #header .right-side.loggedin .cart .cart-counter, #header .right-side.loggedin .cart {
+        top: -12px;
+    }
+
+    #header .right-side.loggedin .user-menu .user-name:after {
+        top: 5px;
+    }
+
+    #header .right-side.loggedin .user-menu span {
+        top: 0;
+    }
+
+    #logo {
+        left: 60px;
+    }
+
+    #header.cloned #logo img {
+        max-width: 130px;
+    }
+
+    #header #logo img {
+        max-width: 130px;
+    }
+
+}
+
+@media(max-width: 480px) {
+    #header .right-side.loggedin .user-menu span {
+        top: -8px;
+    }
+    #header .right-side.loggedin .user-menu .user-name:after {
+        top:0;
+    }
+}
+
+@media (max-width: 1239px) and (min-width: 992px) {
+    .header-widget {
+        right: 120px;
+    }
+
 }
 
 /********* Footer *******/
@@ -450,7 +527,7 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 .property-button .property-button-add-to-cart {
     font-weight: normal;
     font-size: initial;
-    background: #383b5d;
+    background: #e81515;
     text-align: center;
     border-radius: 3px;
     color: #fff;
@@ -744,8 +821,8 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
     display: inline-block;
     padding-left: 25px;
     padding-right: 25px;
-    background: #a72020;
-    border-color: #a72020;
+    background: #ca1414;
+    border-color: #ca1414;
 }
 
 .sa-confirm-button-container .btn.confirm:active,

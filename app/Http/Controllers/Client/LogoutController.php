@@ -12,12 +12,12 @@ class LogoutController extends Controller
 {
     public function index()
     {
-        ByarentCart::clear();
+        //ByarentCart::clear();
 
-        Auth::user()->carts()->delete();
+        //Auth::user()->carts()->delete();
 
         Auth::logout();
 
-        return back();
+        return back()->withMessage('You are now logged out!');
     }
 }

@@ -7,6 +7,7 @@ namespace App\Supports;
 use App\Contracts\CartInterface;
 use App\House;
 use App\Services\Money;
+use App\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -179,7 +180,38 @@ class ByarentCart implements CartInterface
 
     public function dbClonedCartContents()
     {
-        foreach (CartModel::all() as $cart) {
+        foreach (\auth()->user()->carts as $cart) {
+            $house = House::find($cart->itemID);
+
+            if ($this->exist($house->id)) {
+                $item = $this->item($house->id);
+                $cart->update(['rowID' => $item->rowId]);
+                Cart::instance($this->cartInstance)->update($item->rowId, ['qty' => $cart->qty]);
+            } else {
+                Cart::instance($this->cartInstance)->add([
+                    'id' => $cart->itemID,
+                    'name' => $house->name,
+                    'qty' => $cart->qty,
+                    'price' => $house->parsedPrice,
+                    'options' =>  [
+                        'house' => $house,
+                        'formattedPrice' => $house->parsedPrice
+                    ]
+                ]);
+            }
+        }
+
+        /*if (CartModel::count() === 0) {
+            $this->clear();
+        }*/
+
+        $this->itemsInCart = Cart::instance($this->cartInstance)->content();
+        return $this->itemsInCart;
+    }
+
+    public function userDbClonedCartContents()
+    {
+        foreach (CartModel::carts() as $cart) {
             $house = House::find($cart->itemID);
 
             if ($this->exist($house->id)) {

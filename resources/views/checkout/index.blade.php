@@ -5,25 +5,24 @@
 @section('wrapper-style', 'backgroun: transparent')
 
 @section('content')
-
     <section class="checkout-wrapper padding-bottom-50 padding-top-50" id="checkoutController">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-7 padding-bottom-20">
                     <h3>
-                        <i uk-icon="icon: user"></i>
-                        @auth
+                        <i class="sl sl-icon-user"></i>
+                        @if(auth()->check())
                             Welcome, <b class="primary-color">{{ auth()->user()->name }}</b>
-                        @elseauth
+                        @else
                             Account
-                        @endauth
+                        @endif
                     </h3>
 
-                    @include('checkout.account')
+                    @include('accounts.holder', ['checkout' => true])
 
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-5" id="checkoutCartSummaryHolder">
                     @include('checkout.cart-summary', ['items' => ByarentCart::items()])
                 </div>
             </div>
@@ -33,30 +32,20 @@
 
 @section('javascript')
     <script>
+        $(document).ready(function () {
+           $('#registrationForm').validate({
+               rules: {
+                   confirmPassword: {
+                       equalTo: '#password'
+                   },
+                   email: {
+                       email: true,
+                       remote: '{{ route('register.check-email') }}'
+                   }
+               }
+           });
 
-        let vm = new Vue({
-            el: '#checkoutController',
-            data() {
-                return {
-                    password: '',
-                    confirmPassword: '',
-                    isPasswordSame: true
-                }
-            },
-
-            created() {
-
-            },
-
-            methods: {
-                checkPasswordMatch() {
-                    if (this.password != this.confirmPassword) {
-                        this.isPasswordSame = false;
-                    } else {
-                        this.isPasswordSame = true;
-                    }
-                }
-            }
+            $('#editProfileForm').validate();
         });
     </script>
 @stop

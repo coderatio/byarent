@@ -1,23 +1,24 @@
-<form action="" method="post">
+<form action="{{ route('account.update') }}" method="post" id="editProfileForm">
+    <input type="hidden" name="userID" value="{{ $user->id }}">
     @csrf
     <div class="row with-forms">
         <div class="col-md-6">
             <h5>First Name</h5>
             <div class="text-input">
-                <input type="text" placeholder="Josiah" name="fname" value="{{ auth()->user()->firstName }}">
+                <input type="text" placeholder="Josiah" minlength="2" name="fname" value="{{ $user->firstName }}">
             </div>
         </div>
         <div class="col-md-6">
             <h5>Last Name</h5>
             <div class="text-input">
-                <input type="text" placeholder="Yahaya" name="lname" value="{{ auth()->user()->lastName }}">
+                <input type="text" minlength="2" placeholder="Yahaya" name="lname" value="{{ $user->lastName }}">
             </div>
         </div>
     </div>
     <div class="row with-forms">
         <div class="col-md-12">
-            <h5>Email <i class="tip" data-tip-content="Please, enter a valid email as this will be used for all your transactions."></i></h5>
-            <input class="search-field" type="email" value="{{ auth()->user()->email }}" name="email" placeholder="e.g me@email.com">
+            <h5>Email Address</h5>
+            <input class="search-field form-control disabled" type="email" disabled="disabled" value="{{ $user->email }}" name="email" placeholder="e.g me@email.com">
         </div>
     </div>
     <div class="row justify-content-center margin-top-20 margin-bottom-30">

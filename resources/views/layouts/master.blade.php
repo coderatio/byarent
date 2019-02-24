@@ -11,6 +11,7 @@
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/animate/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/template/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/sweetalert/sweetalert.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/uikit/css/uikit.min.css') }}">

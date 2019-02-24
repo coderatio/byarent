@@ -11489,7 +11489,7 @@ body .counter-boxes-inside-parallax .counter-box-icon i,
 
 	#map-container.homepage-map { height: 480px; }
 
-	#header.cloned { display: none; }
+	#header.cloned { display: block; }
 	.icon-box-1.alternative:after { display: none; }
 
 	.fullwidth-layout .list-layout .listing-content { flex: 3; }

@@ -14,12 +14,16 @@ class ItemsInCartController extends Controller
             ->withItems(ByarentCart::items())
             ->render();
 
+        $checkoutSummary = view('checkout.cart-summary')
+            ->withItems(ByarentCart::items())
+            ->render();
+
         return response()->json([
             'items' => [
                 'count' => ByarentCart::count(),
                 'items' => ByarentCart::items(),
             ],
-
+            'checkoutSummary' => $checkoutSummary,
             'contents' => $contents
         ]);
     }

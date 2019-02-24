@@ -15,6 +15,7 @@ class Money
     public static function shorten($amount): string
     {
         $abbrevs = [6 => 'M', 9 => 'B', 12 => 'T'];
+        $amount = self::getParsedNumberFrom($amount);
 
         foreach ($abbrevs as $exponent => $abbrev) {
             if (abs($amount) >= pow(10, $exponent)) {
@@ -29,5 +30,18 @@ class Money
         }
 
         return $amount;
+    }
+
+    public static function getParsedNumberFrom($number)
+    {
+        $trimedPrice = strip_tags($number);
+        $trimedPrice = str_replace('.', '', $trimedPrice);
+        $trimedPrice = str_replace(',', '', $trimedPrice);
+        $trimedPrice = str_replace(';', '', $trimedPrice);
+        $trimedPrice = str_replace(':', '', $trimedPrice);
+        $trimedPrice = str_replace(' ', '', $trimedPrice);
+        $trimedPrice = str_replace('|', '', $trimedPrice);
+
+        return $trimedPrice;
     }
 }

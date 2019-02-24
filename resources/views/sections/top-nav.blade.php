@@ -15,6 +15,12 @@
                             <span class="__cf_email__" data-cfemail="1f707979767c7a5f7a677e726f737a317c7072">info@company.com</span>
                         </a>
                     </li>
+                    @if (auth()->check() && auth()->user()->hasRole('admin'))
+                        <li>
+                            <a href="{{ url('admin') }}" class="btn btn-sm btn-danger text-white">Dashboard</a>
+                        </li>
+                    @endif
+
                 </ul>
 
             </div>
@@ -49,7 +55,7 @@
 
                 <!-- Logo -->
                 <div id="logo">
-                    <a href="index-2.html">
+                    <a href="{{ route('home.index') }}">
                         <img src="{{ asset('vendor/template/images/logo.png') }}" alt="{{ setting('admin.title') }}">
                     </a>
                 </div>
@@ -92,7 +98,7 @@
             <!-- Left Side Content / End -->
 
             <!-- Right Side Content / End -->
-            <div class="right-side dropdown">
+            <div class="right-side dropdown @if(auth()->check()) loggedin @endif">
                 <!-- Header Widget -->
                 <div class="header-widget">
                     {{--<a href="login-register.html" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>--}}
@@ -101,16 +107,16 @@
                     <div class="user-menu" style="@if(!auth()->check()) margin-top: -20px; @endif">
                         <div class="user-name">
                             @if (auth()->check())
-                                <span><img src="{{ asset('vendor/template/images/agent-03.jpg') }}" alt=""></span> Hi, Josiah!
+                                <span><img src="{{ Voyager::image(auth()->user()->avatar) }}" alt=""></span> <i style="font-style: normal;" class="hidden-xs">Hi, {{ auth()->user()->firstName }}</i>
                             @else
-                                <span class="account widget-icon"><i uk-icon="icon: user; ratio: 2"></i></span>
+                                <span class="account widget-icon d-inline-block"><i uk-icon="icon: user; ratio: 2"></i></span>
                             @endif
                         </div>
                         <ul>
                             @if (auth()->check())
-                                <li><a href="my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
-                                <li><a href="my-bookmarks.html"><i class="sl sl-icon-star"></i> Favorites</a></li>
-                                <li><a href="my-properties.html"><i class="sl sl-icon-docs"></i> My Orders</a></li>
+                                <li><a href="{{ route('account.index') }}"><i class="sl sl-icon-user"></i> My Profile</a></li>
+                                <li><a href="#!"><i class="sl sl-icon-star"></i> Favorites</a></li>
+                                <li><a href="#!"><i class="sl sl-icon-docs"></i> My Orders</a></li>
                                 <li>
                                     <form action="{{ route('logout.index') }}" method="post">
                                         @csrf
@@ -118,8 +124,8 @@
                                     </form>
                                 </li>
                             @else
-                                <li><a href="my-profile.html"><i class="sl sl-icon-login"></i> Login</a></li>
-                                <li><a href="my-profile.html"><i class="sl sl-icon-plus"></i> Register</a></li>
+                                <li><a href="{{ route('account.index', 'login') }}#lg"><i class="sl sl-icon-login"></i> Login</a></li>
+                                <li><a href="{{ route('account.index', 'register') }}#rg"><i class="sl sl-icon-plus"></i> Register</a></li>
                             @endif
                         </ul>
                     </div>

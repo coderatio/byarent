@@ -44,8 +44,8 @@ class ShoppingCartsController extends Controller
             $item = $this->cart->item($request->itemID);
 
             if (Auth::check()) {
-                $cartItem = Cart::getUserCart($item->id);
-                
+                $cartItem = Cart::getUserCart($item->id, \auth()->user()->id);
+
                 if ($cartItem) {
                     $cartItem->delete();
                 }
@@ -55,6 +55,10 @@ class ShoppingCartsController extends Controller
                 return response()->json(['deleted' => false, 'error' => 'Item not found!']);
             }
 
+            $checkoutSummary = view('checkout.cart-summary')
+                ->withItems(ByarentCart::items())
+                ->render();
+
             return response()->json([
                 'deleted' => true,
                 'error' => null,
@@ -62,6 +66,7 @@ class ShoppingCartsController extends Controller
                     'count' => $this->cart->count(),
                     'item' => $item,
                 ],
+                'checkoutSummary' => $checkoutSummary,
                 'newContents' => ByarentCart::getDropdownTable(ByarentCart::items())
             ]);
 
@@ -97,11 +102,16 @@ class ShoppingCartsController extends Controller
             ->withItems(ByarentCart::items())
             ->render();
 
+        $checkoutSummary = view('checkout.cart-summary')
+            ->withItems(ByarentCart::items())
+            ->render();
+
         return response()->json([
             'items' => [
                 'count' => ByarentCart::count(),
                 'items' => ByarentCart::items(),
             ],
+            'checkoutSummary' => $checkoutSummary,
             'dropdownContents' => ByarentCart::getDropdownTable(ByarentCart::items()),
             'contents' => $contents
         ]);
@@ -115,11 +125,16 @@ class ShoppingCartsController extends Controller
 
         if ($this->cart->clear()) {
 
+            $checkoutSummary = view('checkout.cart-summary')
+                ->withItems(ByarentCart::items())
+                ->render();
+
             return response()->json([
                 'cleared' => true,
                 'items' => [
                     'count' => 0
                 ],
+                'checkoutSummary' => $checkoutSummary,
                 'contents' => $this->cart->getDropdownTable([])
             ]);
         }

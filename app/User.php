@@ -64,4 +64,9 @@ class User extends \TCG\Voyager\Models\User
         }
 
     }
+
+    public function getLocaleAttribute()
+    {
+        return is_array($this->settings) ? $this->settings['locale'] : 'en';
+    }
 }

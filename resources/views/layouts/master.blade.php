@@ -10,13 +10,13 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/animate/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/template/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/sweetalert/sweetalert.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/uikit/css/uikit.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/template/css/colors/red.css') }}" id="colors">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" id="colors">
+    <link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/vendor/animate/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/vendor/template/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/vendor/sweetalert/sweetalert.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/vendor/uikit/css/uikit.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/vendor/template/css/colors/red.css') }}" id="colors">
+    <link rel="stylesheet" href="{{ asset('public/css/custom.css') }}" id="colors">
 
 </head>
 

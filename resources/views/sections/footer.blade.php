@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-6">
-                <img class="footer-logo" src="{{ asset('vendor/template/images/logo.png') }}" alt="Logo" style="margin-top: -10px;">
+                <img class="footer-logo" src="{{ asset('public/vendor/template/images/logo.png') }}" alt="Logo" style="margin-top: -10px;">
                 <br>
                 <p>
                     BYARENT is a home buying platform.It allows potential homeowners to view houses and buy preferred on. unc ut lacinia tortor morbi ultricies laoreet.
@@ -71,37 +71,37 @@
 ================================================== -->
 {{--<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>--}}
 {{--Laravel compiles--}}
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('public/js/app.js') }}"></script>
 {{--Other vendors--}}
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/jquery-2.2.0.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/chosen.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/magnific-popup.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/rangeSlider.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/sticky-kit.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/slick.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/masonry.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/mmenu.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/tooltips.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/jquery-2.2.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/chosen.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/magnific-popup.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/owl.carousel.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/rangeSlider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/sticky-kit.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/slick.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/masonry.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/mmenu.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/tooltips.min.js') }}"></script>
 {{--Sweetalert--}}
-<script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/sweetalert/sweetalert.min.js') }}"></script>
 {{--BlocUI--}}
-<script type="text/javascript" src="{{ asset('vendor/jquery-blockUI/jquery.blockUI.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/jquery-blockUI/jquery.blockUI.js') }}"></script>
 
 {{--UiKit--}}
-<script type="text/javascript" src="{{ asset('vendor/uikit/js/uikit.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/uikit/js/uikit-icons.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/uikit/js/uikit.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/uikit/js/uikit-icons.min.js') }}"></script>
 
 {{--jQuery Validation--}}
-<script src="{{ asset('vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('public/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
 
 {{--Bootstrap Notify--}}
-<script src="{{ asset('vendor/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+<script src="{{ asset('public/vendor/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
 
 {{--Template custom js--}}
-<script type="text/javascript" src="{{ asset('vendor/template/scripts/custom.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/vendor/template/scripts/custom.js') }}"></script>
 {{--App custom js--}}
-<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/js/script.js') }}"></script>
 
 
 <!-- Google Autocomplete -->
@@ -130,7 +130,7 @@
 
 <!-- Style Switcher
 ================================================== -->
-<script src="{{ asset('vendor/template/scripts/switcher.js') }}"></script>
+<script src="{{ asset('public/vendor/template/scripts/switcher.js') }}"></script>
 
 {{--<div id="style-switcher">
     <h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>

@@ -2,7 +2,6 @@
 ================================================== -->
 <div class="container">
     <div class="row fullwidth-layout">
-
         <div class="col-md-12">
             <!-- Listings -->
             <div class="listings-container grid-layout-three">
@@ -61,6 +60,12 @@
                 @endforeach
 
             </div>
+
+            @if ($houses->count() < 1)
+                <div class="alert alert-danger">
+                    <b>Whoops!!</b> No houses found..
+                </div>
+            @endif
             <!-- Listings Container / End -->
 
             <div class="clearfix"></div>

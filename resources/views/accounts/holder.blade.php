@@ -27,8 +27,8 @@
         @if (!auth()->check())
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <button class="button margin-bottom-20 margin-top-10 button-facebook border"><i class="sl sl-icon-social-facebook"></i> Facebook</button>
-                        <button class="button margin-bottom-20 button-google button-default"><i class="im im-icon-Google-Plus"></i> Google</button>
+                        <button class="button margin-bottom-20 margin-top-10 button-facebook border"><i class="fa fa-facebook-official"></i> Facebook</button>
+                        <button class="button margin-bottom-20 button-google button-default text-danger"><i class="fa fa-google"></i> Google</button>
                         {{--<button class="button" type="button" data-toggle="collapse" data-target="#withEmail" aria-expanded="false" aria-controls="withEmail">
                             <i class="sl sl-icon-envolope"></i> Email
                         </button>--}}
@@ -45,19 +45,19 @@
                         <a class="uk-accordion-title text-uppercase font-weight-light" href="#">I have an account</a>
                         <div class="uk-accordion-content">
                             <div class="uk-panel well uk-placeholder" style="background-color: #f7f3f3;">
-                                <form action="{{ route('login.authenticate') }}" method="post">
+                                <form action="{{ route('login.authenticate') }}" method="post" id="loginForm">
                                     @csrf
                                     <div class="row with-forms">
                                         <div class="col-md-6">
                                             <div class="text-input">
                                                 <h5>Email Address</h5>
-                                                <input class="search-field" type="email" value="" name="email" placeholder="Email">
+                                                <input class="search-field" type="email" value="" required name="email" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="text-input">
                                                 <h5>Password</h5>
-                                                <input class="search-field" type="password" value="" name="password" placeholder="Password">
+                                                <input class="search-field" type="password" value="" name="password" placeholder="Password" required>
                                             </div>
                                         </div>
                                     </div>

@@ -1,13 +1,20 @@
 <!-- Search
 ================================================== -->
-<section class="search margin-bottom-50">
+<section class="search margin-bottom-40">
     <div class="container">
         <div class="row">
+            @if ($type !='')
+                <div class="col-md-12 margin-bottom-20">
+                    <a href="{{ route('houses.index') }}" class="btn btn-outline-danger">
+                        <i class="sl sl-icon-home"></i> All Houses
+                    </a>
+                </div>
+            @endif
             <div class="col-md-12">
 
                 <!-- Title -->
                 <form action="">
-                    <h3 class="search-title">Search</h3>
+                    {{--<h3 class="search-title">Search</h3>--}}
 
                     <!-- Form -->
                     <div class="main-search-box no-shadow">

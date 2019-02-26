@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('vendor/template/css/colors/red.css') }}" id="colors">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" id="colors">
 
+    @include('sections.fonts')
+
 </head>
 
 <body>

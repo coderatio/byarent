@@ -11,6 +11,7 @@
         <div id="titlebar" class="property-titlebar margin-bottom-0">
             <div class="container">
                 <div class="row">
+
                     <div class="col-md-12">
                         <a href="{{ route('houses.index', $house->type) }}" class="back-to-listings"></a>
                         <div class="property-title">
@@ -21,7 +22,7 @@
                             </h2>
                             <span>
                                 <a href="#location" class="listing-address">
-                                    <i class="im im-icon-Checked-User"></i>
+                                    <i class="sl sl-icon-user-following"></i>
                                     {{ $house->agent->name }}
                                 </a>
                             </span>

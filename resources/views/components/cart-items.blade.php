@@ -44,11 +44,6 @@
                             <th>Subtotal</th>
                             <td colspan="2">{{ ByarentCart::instance()->subtotal() }}</td>
                         </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <th>Tax</th>
-                            <td colspan="2">{{ ByarentCart::instance()->tax() }}</td>
-                        </tr>
                         </tfoot>
                     </table>
                 </div>

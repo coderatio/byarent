@@ -46,6 +46,7 @@
            });
 
             $('#editProfileForm').validate();
+            $('#loginForm').validate();
         });
     </script>
 @stop

@@ -3,7 +3,7 @@ input[type="password"], input[type="email"],
 textarea, select, input[type="button"],
 input[type="submit"], button, #tiptip_content
 {
-    font-family: 'Graphik', sans-serif;
+    font-family: 'Proxima Nova', sans-serif;
 }
 
 /********** Forms ***********/
@@ -34,7 +34,7 @@ label.error {
 /******** Wrapper ********/
 
 #wrapper {
-    background: #f9f1f1;
+    background: #f5f5f5;
     overflow: hidden;
 }
 
@@ -298,9 +298,14 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 }
 
 @media(max-width: 767px) {
+    .cart-drowpdown-wrapper .uk-dropdown:not(.uk-open) {
+        display: none;
+    }
+
     .cart-drowpdown-wrapper .uk-dropdown.uk-open {
-        left: 30px !important;
-        width: 88%;
+        width: 83%;
+        margin-left: 30px !important;
+        display: block;
     }
 
     .cart-drowpdown-wrapper .uk-dropdown .uk-grid {
@@ -334,6 +339,7 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 
     #logo {
         left: 60px;
+        z-index: 55;
     }
 
     #header.cloned #logo img {
@@ -344,9 +350,16 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
         max-width: 130px;
     }
 
+    #header .right-side:not(.loggedin) {
+        top: 8px;
+    }
+
 }
 
 @media(max-width: 480px) {
+    .cart-drowpdown-wrapper .uk-dropdown.uk-open {
+        width: 88%;
+    }
     #header .right-side.loggedin .user-menu span {
         top: -8px;
     }
@@ -369,6 +382,25 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 
     .user-menu .user-name:after {
         right: 5px;
+    }
+}
+
+@media (max-width: 350px) {
+    .mmenu-trigger {
+        margin-left: -10px;
+    }
+
+    #header.cloned #logo img {
+        max-width: 100px;
+    }
+
+    #header #logo img {
+        max-width: 100px;
+    }
+
+    #logo {
+        left: 40px;
+        top: 3px;
     }
 }
 
@@ -570,7 +602,11 @@ ul.top-bar-menu li a, ul.top-bar-menu li i, ul.top-bar-menu li {
 }
 
 #titlebar.property-titlebar {
-    background: transparent;
+    background: #f3e5e5;
+}
+
+#titlebar.property-titlebar:not(.stick-house-title-bar) {
+    margin-bottom: 40px !important;
 }
 
 .stick-house-title-bar {

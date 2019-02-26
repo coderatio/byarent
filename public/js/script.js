@@ -140,24 +140,26 @@ function initiateCartClearing() {
             closeOnConfirm: false,
             showLoaderOnConfirm: true,
         }, function (yes) {
-            $.post(`${baseUrl}/carts/clear`, { _token: csrf_token }, (data) => {
-                cartItemsDropdownHolder.html(`
+            if (yes) {
+                $.post(`${baseUrl}/carts/clear`, { _token: csrf_token }, (data) => {
+                    cartItemsDropdownHolder.html(`
                     <div class="">
                         <div class="pr-2 pl-4 pb-2">
                             <i class="sl sl-icon-basket"></i> Your cart is empty!
                         </div>
                     </div>
                 `);
-                dropdownCartCounter.addClass('hidden').html(0);
-                checkoutCartSummaryHolder.html(data.checkoutSummary);
+                    dropdownCartCounter.addClass('hidden').html(0);
+                    checkoutCartSummaryHolder.html(data.checkoutSummary);
 
-                swal('Success', 'Cart cleared successfully!', 'success');
-                initiateAutoUpdateItemsInCart();
+                    swal('Success', 'Cart cleared successfully!', 'success');
+                    initiateAutoUpdateItemsInCart();
 
-            }).fail((error) => {
-                console.log(error);
-                swal('Error', 'Something went wrong in the server!', 'error')
-            });
+                }).fail((error) => {
+                    console.log(error);
+                    swal('Error', 'Something went wrong in the server!', 'error')
+                });
+            }
         });
     });
 }

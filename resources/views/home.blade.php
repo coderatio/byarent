@@ -28,7 +28,7 @@
     </div>
 
     <!-- Fullwidth Section -->
-    <section class="fullwidth margin-top-95 margin-bottom-0">
+    <section class="fullwidth margin-top-30 margin-bottom-0">
 
         <!-- Box Headline -->
         <h3 class="headline-box hidden">Articles & Tips</h3>
@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-12 " style="margin-top: -10px;">
+                <div class="col-md-12 ">
                     <h2 class="text-center">Articles & Tips</h2>
                 </div>
 
@@ -133,12 +133,13 @@
     <!-- Flip banner -->
     <a href="{{ route('houses.index') }}" class="flip-banner parallax" data-background="{{ asset('vendor/template/images/flip-banner-bg.jpg') }}" data-color="rgb(152, 41, 41)" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
         <div class="flip-banner-content">
-            <h2 class="flip-visible">We help people and homes find each other</h2>
-            <span class="flip-visible text-white margin-top-30">
+            <h2 class="flip-visible hidden-xs hidden-sm">We help people and homes find each other</h2>
+            <span class="flip-visible hidden-xs hidden-sm text-white margin-top-30">
                 Click here to find your dream house
             </span>
-            <i class="flip-visible margin-top-50 text-white fa fa-angle-down"></i>
-            <h2 class="flip-hidden">Browse houses <i class="sl sl-icon-arrow-right"></i></h2>
+            <i class="flip-visible hidden-xs hidden-sm margin-top-50 text-white fa fa-angle-down"></i>
+            <h2 class="flip-hidden hidden-xs hidden-sm">Browse houses <i class="sl sl-icon-arrow-right"></i></h2>
+            <h2 class="flip-visible hidden-md hidden-lg">Browse houses <i class="sl sl-icon-arrow-right"></i></h2>
         </div>
     </a>
     <!-- Flip banner / End -->

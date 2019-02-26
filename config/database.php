@@ -1,11 +1,11 @@
 <?php
-$db = parse_url(getenv('DATABASE_URL'));
+/*$db = parse_url(getenv('DATABASE_URL'));
 $dbName = ltrim($db['path'],'/');
 $dbUser = $db['user'] ?? null;
 $dbPassword = $db['pass'] ?? null;
 $dbHost = $db['host'] ?? null;
 $dbPort = $db['port'] ?? null;
-$dbDriver = 'pgsql';
+$dbDriver = 'pgsql';*/
 
 return [
 
@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql_production'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'pgsql_production' => [
+        /*'pgsql_production' => [
             'driver' => 'pgsql',
             'host' => $dbHost,
             'port' => $dbPort,
@@ -89,7 +89,7 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],
+        ],*/
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',

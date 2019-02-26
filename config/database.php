@@ -1,4 +1,11 @@
 <?php
+$db = parse_url(getenv('DATABASE_URL'));
+$dbName = ltrim($db['path'],'/');
+$dbUser = $db['user'] ?? null;
+$dbPassword = $db['pass'] ?? null;
+$dbHost = $db['host'] ?? null;
+$dbPort = $db['port'] ?? null;
+$dbDriver = 'pgsql';
 
 return [
 
@@ -13,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql_production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,6 +70,20 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'pgsql_production' => [
+            'driver' => 'pgsql',
+            'host' => $dbHost,
+            'port' => $dbPort,
+            'database' => $dbName,
+            'username' => $dbUser,
+            'password' => $dbPassword,
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
